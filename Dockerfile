@@ -7,7 +7,8 @@ WORKDIR /app
 
 COPY . .
 
-RUN npm install -g pnpm && pnpm install --prod
+# RUN npm install -g pnpm && pnpm install --prod --frozen-lockfile
+RUN npm install --production
 
 CMD ["npm", "run", "start:prod"]
 
