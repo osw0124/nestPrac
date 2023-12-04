@@ -1,5 +1,5 @@
 name: LintCheck
-
+run-name: LintCheck
 on:
   pull_request:
     branches:
