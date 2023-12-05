@@ -1,0 +1,12 @@
+name: Staging
+run-name: Staging
+on:
+  pull_request:
+    branches:
+      - staging
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo staging!
