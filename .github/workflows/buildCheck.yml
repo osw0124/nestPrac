@@ -1,4 +1,5 @@
 name: Docker Build Check
+run-name: Docker Build Check
 
 on:
   pull_request:
