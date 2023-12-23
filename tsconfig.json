@@ -19,7 +19,7 @@
     /* strict options */
     "noImplicitAny": true,
     "strictBindCallApply": true,
-    "strictPropertyInitialization": true,
+    "strictPropertyInitialization": false,
     "noImplicitThis": true,
     "alwaysStrict": true
   }
