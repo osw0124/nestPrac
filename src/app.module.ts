@@ -6,6 +6,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 import { HealthModule } from './health/health.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
   imports: [
@@ -18,6 +19,16 @@ import { HealthModule } from './health/health.module';
         NODE_ENV: Joi.string().valid('dev', 'debug', 'prod').default('dev'),
       }),
     }),
+    TypeOrmModule.forRoot({
+      type: 'mysql',
+      host: 'localhost',
+      port: 3306,
+      username: 'root',
+      password: 'root',
+      database: 'reservation_system',
+      entities: [],
+      synchronize: true,
+    })
   ],
   controllers: [AppController],
   providers: [AppService],
