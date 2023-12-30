@@ -7,11 +7,16 @@ import { AppService } from './app.service';
 
 import { HealthModule } from './health/health.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { WaitModule } from './wait/wait.module';
+import { DataSource } from 'typeorm';
+import { BookingModule } from './booking/booking.module';
 
 @Module({
   imports: [
     AppModule,
     HealthModule,
+    WaitModule,
+    BookingModule,
     ConfigModule.forRoot({
       envFilePath: `.env.${process.env.NODE_ENV}`,
       isGlobal: true,
@@ -26,11 +31,13 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       username: 'root',
       password: 'root',
       database: 'reservation_system',
-      entities: [],
+      autoLoadEntities: true,
       synchronize: true,
-    })
+    }),
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private dataSource: DataSource) {}
+}
